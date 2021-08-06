@@ -10,8 +10,8 @@ function init() {
 }
 
 function resize() {
-    canvas.width = window.innerWidth * window.devicePixelRatio;
-    canvas.height = window.innerHeight * window.devicePixelRatio;
+    canvas.width = document.documentElement.clientWidth; // window.innerWidth * window.devicePixelRatio;
+    canvas.height = document.documentElement.clientHeight; // window.innerHeight * window.devicePixelRatio;
 }
 
 (() => {
@@ -22,6 +22,6 @@ function resize() {
     
     window.onresize = () => {
         if (timer > 0) clearTimeout(timer);
-        timer = setTimeout(resize, 10);
+        timer = setTimeout(resize, 100);
     };
 })();
